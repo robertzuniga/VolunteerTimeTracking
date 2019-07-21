@@ -17,7 +17,10 @@ firebase.initializeApp(firebaseConfig);
 
 var database = firebase.database();
 
-var newData;
+
+
+
+// var newData;
 
 console.log("Initial Count => ",count);
 
@@ -30,20 +33,20 @@ database.ref().on("child_added", function (childSnapshot) {
     var tVolunteerDate = childSnapshot.val().volunteerDate;
     var volunteerDatePretty = moment.unix(tVolunteerDate).format("MM/DD/YYYY");
 
-    console.log("count entering function=> ",count);
+    console.log("count beginning of function=> ",count);
 
-    newData   = { 
-      myName: tName,
-      myLocation: tLocation,
-      myVolunteerDuration: tVolunteerDuration,
-      myVolunteerDate: tVolunteerDate,
-      myCount: count
-    };
+    // newData   = { 
+    //   myName: tName,
+    //   myLocation: tLocation,
+    //   myVolunteerDuration: tVolunteerDuration,
+    //   myVolunteerDate: tVolunteerDate,
+    //   myCount: count
+    // };
     
     
-    console.log(tName);
+    // console.log(tName);
 
-    console.log("volunteer location ==>",newData.myLocation);
+    // console.log("volunteer location ==>",newData.myLocation);
     
     
     //console.log("volunteer location ==>", newData[0].tVolunteerDuration);
@@ -60,10 +63,38 @@ database.ref().on("child_added", function (childSnapshot) {
     // // Append the new row to the table
     $("#volunteer-table > tbody").append(newRow);
   
-  });
+  }); // end database.ref()
+
 
   // console.log("Final object ==>", newData[0].myLocation);
   console.log("Final count => ",count);
  // counsole.log(database);
 
   
+// end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
