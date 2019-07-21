@@ -16,12 +16,7 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 var database = firebase.database();
-
-
-
-
 // var newData;
-
 console.log("Initial Count => ",count);
 
 database.ref().on("child_added", function (childSnapshot) {
@@ -72,29 +67,3 @@ database.ref().on("child_added", function (childSnapshot) {
 
   
 // end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

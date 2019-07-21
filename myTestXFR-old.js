@@ -2,13 +2,13 @@ console.log('AWESOME myTestXFR.js STUFF!');
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
-  apiKey: "AIzaSyDCladk9SjpXC2T383qLfyceYfUx77pGkU",
-  authDomain: "mydataxfr.firebaseapp.com",
-  databaseURL: "https://mydataxfr.firebaseio.com",
-  projectId: "mydataxfr",
-  storageBucket: "",
-  messagingSenderId: "95334722866",
-  appId: "1:95334722866:web:6d873dc203ee8df9"
+    apiKey: "AIzaSyDCladk9SjpXC2T383qLfyceYfUx77pGkU",
+    authDomain: "mydataxfr.firebaseapp.com",
+    databaseURL: "https://mydataxfr.firebaseio.com",
+    projectId: "mydataxfr",
+    storageBucket: "",
+    messagingSenderId: "95334722866",
+    appId: "1:95334722866:web:6d873dc203ee8df9"
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
@@ -24,19 +24,19 @@ $("#add-btn").on("click", function (event) {
   var name = $("#name").val().trim();
   // var volunteerDuration = moment($("#time-input").val().trim(), "HH:mm").format("X");
   var role = $("#role").val().trim();
-
+  
   // Creates local "temporary" object for holding volunteer data
   var newEntry = {
     sno,
     name,
     role
   };
-  localStorage
+localStorage
   // Uploads volunteer data to the database
   database.ref().push(newEntry);
 
   // Logs everything to console
-  console.log(newEntry);
+   console.log(newEntry);
 
   alert("Added");
 
@@ -44,6 +44,7 @@ $("#add-btn").on("click", function (event) {
   $("#sn").val("");
   $("#name").val("");
   $("#role").val("");
+ 
 });
 
 // // 3. Create Firebase event for adding volunteer to the database 

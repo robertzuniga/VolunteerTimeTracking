@@ -1,5 +1,5 @@
 // 1. Initialize Firebase
-console.log('AWESOME index.html STUFF!');
+console.log('AWESOME myDataEntry.js STUFF!');
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
