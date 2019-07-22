@@ -19,33 +19,35 @@
     #info-table th,
     td {
       display: inline-block;
-      width: 16.575%;
+      width: 33.33%;
     }
 
     #sortName-table th,
     td {
       display: inline-block;
-      width: 16.575%;
+      width: 33.33%;
     }
 
     #sortSN-table th,
     td {
       display: inline-block;
-      width: 16.575%;
+      width: 33.33%;
     }
 
     #sortRole-table th,
     td {
       display: inline-block;
-      width: 16.575%;
+      width: 33.33%;
     }
 
     .card {
-
-      border-color: #0275d8;
+      border-color: green;
       border-width: 2px;
-
     }
+.card-header{
+  background-color: green;
+}
+
   </style>
 </head>
 
@@ -64,7 +66,7 @@
         <!-- ////////////////////////////info-table /////////////////////////////// -->
         <!-- Current Info-->
         <div class="card mb-4" id='info-card'>
-          <div class="card-header text-white bg-primary">Current Info</div>
+          <div class="card-header text-white">Current Info</div>
           <div class="card-body">
             <table class="table table-sm table-hover" id='info-table'>
               <thead>
@@ -82,7 +84,7 @@
 
         <!-- //////////////////////////// sortName-table /////////////////////////////// -->
         <div class="card mb-4" id='sortName-card'>
-          <div class="card-header text-white bg-primary">Sorted by Name</div>
+          <div class="card-header text-white">Sorted by Name</div>
 
           <div class="card-body">
             <table class="table table-sm table-hover" id='sortName-table'>
@@ -102,7 +104,7 @@
 
         <!-- ////////////////////////////sortSN-table /////////////////////////////// -->
         <div class="card mb-4" id='sortSN-card'>
-          <div class="card-header text-white bg-primary">Sorted by SN</div>
+          <div class="card-header text-white">Sorted by SN</div>
 
           <div class="card-body">
             <table class="table table-sm table-hover" id='sortSN-table'>
@@ -122,7 +124,7 @@
 
         <!-- ////////////////////////////sortRole-table /////////////////////////////// -->
         <div class="card mb-4" id='sortRole-card'>
-          <div class="card-header text-white bg-primary">Sorted by Role</div>
+          <div class="card-header text-white">Sorted by Role</div>
 
           <div class="card-body">
             <table class="table table-sm table-hover" id='sortRole-table'>
@@ -155,7 +157,7 @@
 
         <button class="btn btn-primary float-left" id="sortName-btn">Sort Name</button> </br></br>
         <button class="btn btn-primary float-left" id="sortSN-btn">Sort SN</button></br></br>
-        <button class="btn btn-primary float-left" id="sortRole-btn">Sort Role</button></br>
+        <button class="btn btn-primary float-left" id="sortRole-btn">Sort Role</button></br></br>
       </div>
     </div>
 
