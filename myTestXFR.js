@@ -15,28 +15,30 @@ firebase.initializeApp(firebaseConfig);
 
 var database = firebase.database();
 
+var newEntry;
+
 // 2. Button for adding info
 $("#add-btn").on("click", function (event) {
   event.preventDefault();
 
   // Grabs user input
-  var sno = $("#sn").val().trim();
-  var name = $("#name").val().trim();
+  var mySNO = $("#sn").val().trim();
+  var myName = $("#name").val().trim();
   // var volunteerDuration = moment($("#time-input").val().trim(), "HH:mm").format("X");
-  var role = $("#role").val().trim();
+  var myRole = $("#role").val().trim();
 
   // Creates local "temporary" object for holding volunteer data
-  var newEntry = {
-    sno,
-    name,
-    role
+  newEntry = {
+    mySNO,
+    myName,
+    myRole
   };
   localStorage
   // Uploads volunteer data to the database
   database.ref().push(newEntry);
 
   // Logs everything to console
-  console.log(newEntry);
+  console.log("In function ==> ",newEntry);
 
   alert("Added");
 
@@ -46,6 +48,7 @@ $("#add-btn").on("click", function (event) {
   $("#role").val("");
 });
 
+console.log("Out function ==> ",newEntry);
 // // 3. Create Firebase event for adding volunteer to the database 
 // //     and a row in the html when a user adds an entry
 

@@ -16,7 +16,7 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 var database = firebase.database();
-// var newData;
+
 console.log("Initial Count => ",count);
 
 database.ref().on("child_added", function (childSnapshot) {
@@ -24,32 +24,15 @@ database.ref().on("child_added", function (childSnapshot) {
     
     var tName = childSnapshot.val().volunteerName;
     var tLocation = childSnapshot.val().volunteerLocation;
+    var tWeather = "sunny";
     var tVolunteerDuration = childSnapshot.val().volunteerDuration;
     var tVolunteerDate = childSnapshot.val().volunteerDate;
     var volunteerDatePretty = moment.unix(tVolunteerDate).format("MM/DD/YYYY");
-
-    console.log("count beginning of function=> ",count);
-
-    // newData   = { 
-    //   myName: tName,
-    //   myLocation: tLocation,
-    //   myVolunteerDuration: tVolunteerDuration,
-    //   myVolunteerDate: tVolunteerDate,
-    //   myCount: count
-    // };
-    
-    
-    // console.log(tName);
-
-    // console.log("volunteer location ==>",newData.myLocation);
-    
-    
-    //console.log("volunteer location ==>", newData[0].tVolunteerDuration);
-    // Create the new row
     
     var newRow = $("<tr>").append(
       $("<td>").text(tName),
       $("<td>").text(tLocation),
+      $("<td>").text(tWeather),
       $("<td>").text(tVolunteerDuration),
       $("<td>").text(volunteerDatePretty)
     );
@@ -59,11 +42,3 @@ database.ref().on("child_added", function (childSnapshot) {
     $("#volunteer-table > tbody").append(newRow);
   
   }); // end database.ref()
-
-
-  // console.log("Final object ==>", newData[0].myLocation);
-  console.log("Final count => ",count);
- // counsole.log(database);
-
-  
-// end
