@@ -18,15 +18,15 @@ console.log('AWESOME myTest-Sort.js STUFF!');
 //var database = firebase.database();
 
 database.ref().on("child_added", function (childSnapshot) {
-//   console.log(childSnapshot.val());
+  //   console.log(childSnapshot.val());
 
 
   var tSn = childSnapshot.val().mySNO;
   var tName = childSnapshot.val().myName;
   var tRole = childSnapshot.val().myRole;
- // var tVolunteerDate = childSnapshot.val().volunteerDate;
+  // var tVolunteerDate = childSnapshot.val().volunteerDate;
 
- // var volunteerDatePretty = moment.unix(tVolunteerDate).format("MM/DD/YYYY");
+  // var volunteerDatePretty = moment.unix(tVolunteerDate).format("MM/DD/YYYY");
 
   // Create the new row
   var newRow = $("<tr>").append(
@@ -35,13 +35,61 @@ database.ref().on("child_added", function (childSnapshot) {
     $("<td>").text(tRole)
   );
 
-  console.log("tSn ==> ", tSn);
   // // Append the new row to the table
   $("#info-table > tbody").append(newRow);
 });
 
+/////////////////////  Sort Name /////////////////////////
 
-console.log("tSn ==> ", tSn);
+//  Button for sorting by Name
+$("#sortName-btn").on("click", function (event) {
+  event.preventDefault();
+
+  // https://firebase.google.com/docs/reference/js/firebase.database.Reference
+  var ref = firebase.database().ref();
+
+
+  ref.orderByChild("myName").on("child_added", function (snapshot) {
+    console.log(snapshot.key + " name sorted => " + snapshot.val().myName + " done");
+  });
+
+}); // end on  button input
+
+/////////////////////  Sort SNO  /////////////////////////
+
+//  Button for sorting by Name
+$("#sortSN-btn").on("click", function (event) {
+  event.preventDefault();
+
+  // https://firebase.google.com/docs/reference/js/firebase.database.Reference
+  var ref = firebase.database().ref();
+
+  ref.orderByChild("mySNO").on("child_added", function (snapshot) {
+    console.log(snapshot.key + " sno sorted => " + snapshot.val().mySNO + " done");
+  });
+}); // end on  button input
+
+/////////////////////  Sort Role /////////////////////////
+
+//  Button for sorting by Name
+$("#sortRole-btn").on("click", function (event) {
+  event.preventDefault();
+
+  // https://firebase.google.com/docs/reference/js/firebase.database.Reference
+  var ref = firebase.database().ref();
+
+  // ref.orderByChild("myRole").equalTo('ceo').on("child_added", function (snapshot) {
+  //   console.log(snapshot.key);
+  // });
+
+  ref.orderByChild("myRole").on("child_added", function (snapshot) {
+    console.log(snapshot.key + " role sorted => " + snapshot.val().myRole + " done");
+
+    $("#info-table").empty();
 
 
 
+
+
+  });
+}); // end on  button input

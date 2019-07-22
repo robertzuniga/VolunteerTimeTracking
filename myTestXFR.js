@@ -38,7 +38,7 @@ $("#add-btn").on("click", function (event) {
   database.ref().push(newEntry);
 
   // Logs everything to console
-  console.log("In function ==> ",newEntry);
+  console.log("In function new entry==> ",newEntry);
 
   alert("Added");
 
@@ -48,7 +48,6 @@ $("#add-btn").on("click", function (event) {
   $("#role").val("");
 });
 
-console.log("Out function ==> ",newEntry);
 // // 3. Create Firebase event for adding volunteer to the database 
 // //     and a row in the html when a user adds an entry
 
