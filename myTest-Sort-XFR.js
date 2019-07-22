@@ -19,6 +19,8 @@ console.log('AWESOME myTest-Sort.js STUFF!');
 
 database.ref().on("child_added", function (childSnapshot) {
   //   console.log(childSnapshot.val());
+  // $("#info-table").empty();
+  // $("#sortName-table").empty();
 
 
   var tSn = childSnapshot.val().mySNO;
@@ -51,27 +53,28 @@ $("#sortName-btn").on("click", function (event) {
 
   ref.orderByChild("myName").on("child_added", function (snapshot) {
     console.log(snapshot.key + " name sorted => " + snapshot.val().myName + " done");
-    
+    // $("#info-card").empty();
     var tName = snapshot.val().myName;
     var tRole = snapshot.val().myRole;
     var tSn = snapshot.val().mySNO;
-    
+
     // Create the new row
     var newRow = $("<tr>").append(
-      $("<td>").text(tSn),
+
       $("<td>").text(tName),
-      $("<td>").text(tRole)
+      $("<td>").text(tRole),
+      $("<td>").text(tSn)
     );
-  
+
     // // Append the new row to the table
-    $("#info-table > tbody").append(newRow);
+    $("#sortName-table > tbody").append(newRow);
   });
 
 }); // end on  button input
 
-/////////////////////  Sort SNO  /////////////////////////
+/////////////////////  Sort SN  /////////////////////////
 
-//  Button for sorting by Name
+//  Button for sorting by SN
 $("#sortSN-btn").on("click", function (event) {
   event.preventDefault();
 
@@ -84,17 +87,17 @@ $("#sortSN-btn").on("click", function (event) {
     var tSn = snapshot.val().mySNO;
     var tName = snapshot.val().myName;
     var tRole = snapshot.val().myRole;
-   
-    
+
+
     // Create the new row
     var newRow = $("<tr>").append(
       $("<td>").text(tSn),
       $("<td>").text(tName),
       $("<td>").text(tRole)
     );
-  
+
     // // Append the new row to the table
-    $("#info-table > tbody").append(newRow);
+    $("#sortSN-table > tbody").append(newRow);
 
 
   });
@@ -105,28 +108,30 @@ $("#sortSN-btn").on("click", function (event) {
 //  Button for sorting by Name
 $("#sortRole-btn").on("click", function (event) {
   event.preventDefault();
-
+  $("#infoCard").empty();
   // https://firebase.google.com/docs/reference/js/firebase.database.Reference
   var ref = firebase.database().ref();
 
   ref.orderByChild("myRole").on("child_added", function (snapshot) {
     console.log(snapshot.key + " role sorted => " + snapshot.val().myRole + " done");
-    
+
     var tRole = snapshot.val().myRole;
     var tName = snapshot.val().myName;
     var tSn = snapshot.val().mySNO;
-    
+
     // Create the new row
     var newRow = $("<tr>").append(
+     
+      
+      $("<td>").text(tRole),
       $("<td>").text(tSn),
-      $("<td>").text(tName),
-      $("<td>").text(tRole)
+      $("<td>").text(tName)
     );
-  
+
     // // Append the new row to the table
-    $("#info-table > tbody").append(newRow);
-    
-    
+    $("#sortRole-table > tbody").append(newRow);
+
+
 
 
   });
