@@ -51,6 +51,20 @@ $("#sortName-btn").on("click", function (event) {
 
   ref.orderByChild("myName").on("child_added", function (snapshot) {
     console.log(snapshot.key + " name sorted => " + snapshot.val().myName + " done");
+    
+    var tName = snapshot.val().myName;
+    var tRole = snapshot.val().myRole;
+    var tSn = snapshot.val().mySNO;
+    
+    // Create the new row
+    var newRow = $("<tr>").append(
+      $("<td>").text(tSn),
+      $("<td>").text(tName),
+      $("<td>").text(tRole)
+    );
+  
+    // // Append the new row to the table
+    $("#info-table > tbody").append(newRow);
   });
 
 }); // end on  button input
@@ -66,6 +80,23 @@ $("#sortSN-btn").on("click", function (event) {
 
   ref.orderByChild("mySNO").on("child_added", function (snapshot) {
     console.log(snapshot.key + " sno sorted => " + snapshot.val().mySNO + " done");
+
+    var tSn = snapshot.val().mySNO;
+    var tName = snapshot.val().myName;
+    var tRole = snapshot.val().myRole;
+   
+    
+    // Create the new row
+    var newRow = $("<tr>").append(
+      $("<td>").text(tSn),
+      $("<td>").text(tName),
+      $("<td>").text(tRole)
+    );
+  
+    // // Append the new row to the table
+    $("#info-table > tbody").append(newRow);
+
+
   });
 }); // end on  button input
 
@@ -78,17 +109,24 @@ $("#sortRole-btn").on("click", function (event) {
   // https://firebase.google.com/docs/reference/js/firebase.database.Reference
   var ref = firebase.database().ref();
 
-  // ref.orderByChild("myRole").equalTo('ceo').on("child_added", function (snapshot) {
-  //   console.log(snapshot.key);
-  // });
-
   ref.orderByChild("myRole").on("child_added", function (snapshot) {
     console.log(snapshot.key + " role sorted => " + snapshot.val().myRole + " done");
-
-    $("#info-table").empty();
-
-
-
+    
+    var tRole = snapshot.val().myRole;
+    var tName = snapshot.val().myName;
+    var tSn = snapshot.val().mySNO;
+    
+    // Create the new row
+    var newRow = $("<tr>").append(
+      $("<td>").text(tSn),
+      $("<td>").text(tName),
+      $("<td>").text(tRole)
+    );
+  
+    // // Append the new row to the table
+    $("#info-table > tbody").append(newRow);
+    
+    
 
 
   });

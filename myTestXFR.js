@@ -47,26 +47,3 @@ $("#add-btn").on("click", function (event) {
   $("#name").val("");
   $("#role").val("");
 });
-
-// // 3. Create Firebase event for adding volunteer to the database 
-// //     and a row in the html when a user adds an entry
-
-// database.ref().on("child_added", function (childSnapshot) {
-//   console.log(childSnapshot.val());
-//   var tSn = childSnapshot.val().sno;
-//   var tName = childSnapshot.val().name;
-//   var tRole = childSnapshot.val().role;
-//  // var tVolunteerDate = childSnapshot.val().volunteerDate;
-
-//  // var volunteerDatePretty = moment.unix(tVolunteerDate).format("MM/DD/YYYY");
-
-//   // Create the new row
-//   var newRow = $("<tr>").append(
-//     $("<td>").text(tSn),
-//     $("<td>").text(tName),
-//     $("<td>").text(tRole)
-//   );
-
-//   // // Append the new row to the table
-//   $("#volunteer-table > tbody").append(newRow);
-// });
