@@ -42,7 +42,7 @@
 
     .card {
       border-color: green;
-      border-width: 2px;
+      border-width: 0px;
     }
 .card-header{
   background-color: green;
@@ -52,7 +52,6 @@
 </head>
 
 <body>
-
   <div class="container">
     <!-- Jumbotron -->
     <div class="jumbotron" style="background-color:green; color: white">
@@ -81,9 +80,8 @@
             </table>
           </div>
         </div>
-
         <!-- //////////////////////////// sortName-table /////////////////////////////// -->
-        <div class="card mb-4" id='sortName-card'>
+        <div class="card mb-4  hidden" id='sortName-card'>
           <div class="card-header text-white">Sorted by Name</div>
 
           <div class="card-body">
@@ -100,10 +98,8 @@
             </table>
           </div>
         </div>
-
-
         <!-- ////////////////////////////sortSN-table /////////////////////////////// -->
-        <div class="card mb-4" id='sortSN-card'>
+        <div class="card mb-4 hidden" id='sortSN-card'>
           <div class="card-header text-white">Sorted by SN</div>
 
           <div class="card-body">
@@ -113,7 +109,6 @@
                   <th scope="col">SN</th>
                   <th scope="col">Name</th>
                   <th scope="col">Role</th>
-
                 </tr>
               </thead>
               <tbody>
@@ -121,9 +116,8 @@
             </table>
           </div>
         </div>
-
         <!-- ////////////////////////////sortRole-table /////////////////////////////// -->
-        <div class="card mb-4" id='sortRole-card'>
+        <div class="card mb-4  hidden" id='sortRole-card'>
           <div class="card-header text-white">Sorted by Role</div>
 
           <div class="card-body">
@@ -132,10 +126,7 @@
                 <tr>
                   <th scope="col">Role</th>
                   <th scope="col">Name</th>
-
                   <th scope="col">SN</th>
-
-
                 </tr>
               </thead>
               <tbody>
@@ -143,26 +134,15 @@
             </table>
           </div>
         </div>
-
-
-
-
-
-
-
-
-
+      </br></br></br>
+        <div id="total"></div></br></br></br></br>
 
         <!-- //////////////////////////// end -table /////////////////////////////// -->
-
         <button class="btn btn-primary float-left" id="sortName-btn">Sort Name</button> </br></br>
         <button class="btn btn-primary float-left" id="sortSN-btn">Sort SN</button></br></br>
         <button class="btn btn-primary float-left" id="sortRole-btn">Sort Role</button></br></br>
       </div>
     </div>
-
-
-
 
 
     <div class="row">
@@ -194,6 +174,8 @@
   </div>
   </div>
   </div>
+ 
+
   </div>
   <!-- JavaScript -->
   <script src="./myTestXFR.js"></script>

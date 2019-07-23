@@ -16,18 +16,22 @@ console.log('AWESOME myTest-Sort.js STUFF!');
 //firebase.initializeApp(firebaseConfig);
 
 //var database = firebase.database();
+var SNTotal = 0;
+
 
 database.ref().on("child_added", function (childSnapshot) {
   //   console.log(childSnapshot.val());
   // $("#info-table").empty();
   // $("#sortName-table").empty();
 
-
   var tSn = childSnapshot.val().mySNO;
   var tName = childSnapshot.val().myName;
   var tRole = childSnapshot.val().myRole;
-  // var tVolunteerDate = childSnapshot.val().volunteerDate;
 
+  SNTotal += parseInt(tSn);
+  $('#total').text(SNTotal);
+  // console.log(`SNTotal: ${SNTotal}`);
+  // var tVolunteerDate = childSnapshot.val().volunteerDate;
   // var volunteerDatePretty = moment.unix(tVolunteerDate).format("MM/DD/YYYY");
 
   // Create the new row
@@ -40,7 +44,6 @@ database.ref().on("child_added", function (childSnapshot) {
   // // Append the new row to the table
   $("#info-table > tbody").append(newRow);
 });
-
 /////////////////////  Sort Name /////////////////////////
 
 //  Button for sorting by Name
@@ -52,7 +55,7 @@ $("#sortName-btn").on("click", function (event) {
 
 
   ref.orderByChild("myName").on("child_added", function (snapshot) {
-    console.log(snapshot.key + " name sorted => " + snapshot.val().myName + " done");
+    // console.log(snapshot.key + " name sorted => " + snapshot.val().myName + " done");
     // $("#info-card").empty();
     var tName = snapshot.val().myName;
     var tRole = snapshot.val().myRole;
@@ -82,7 +85,7 @@ $("#sortSN-btn").on("click", function (event) {
   var ref = firebase.database().ref();
 
   ref.orderByChild("mySNO").on("child_added", function (snapshot) {
-    console.log(snapshot.key + " sno sorted => " + snapshot.val().mySNO + " done");
+    // console.log(snapshot.key + " sno sorted => " + snapshot.val().mySNO + " done");
 
     var tSn = snapshot.val().mySNO;
     var tName = snapshot.val().myName;
@@ -113,7 +116,7 @@ $("#sortRole-btn").on("click", function (event) {
   var ref = firebase.database().ref();
 
   ref.orderByChild("myRole").on("child_added", function (snapshot) {
-    console.log(snapshot.key + " role sorted => " + snapshot.val().myRole + " done");
+    // console.log(snapshot.key + " role sorted => " + snapshot.val().myRole + " done");
 
     var tRole = snapshot.val().myRole;
     var tName = snapshot.val().myName;
